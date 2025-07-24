@@ -88,6 +88,18 @@ public class ContactoDaoJPA  implements ContactoDao {
 		return buscado;
 	}
 	
+	public Contacto buscarX(int idContacto) {
+		em = emf.createEntityManager();
+		Contacto buscado = em.find(Contacto.class, idContacto);
+		if(buscado != null) {
+			buscado.getTelefonos().size();
+			buscado.getCorreos().size();
+		}
+		em.close();
+		return buscado;
+		
+	}
+	
 	//Debe retornar los contactos sin telefonos ni correos
 	@Override
 	public Set<Contacto> buscar(String cadena) {
@@ -100,13 +112,15 @@ public class ContactoDaoJPA  implements ContactoDao {
 		result.addAll(q.getResultList());
 		return result;
 	}
+	
+	
 
 	@Override
 	public Set<Contacto> buscarTodos() {
-		Set<Contacto> result = new HashSet<Contacto>();
+		
 		String jpql = "select c from Contacto";
 		TypedQuery<Contacto> q = em.createNamedQuery(jpql, Contacto.class);
-		result.addAll(q.getResultList());
+		Set<Contacto> result = new HashSet<Contacto>(q.getResultList());
 		return result;
 	}
 
