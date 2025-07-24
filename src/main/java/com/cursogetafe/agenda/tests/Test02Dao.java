@@ -12,7 +12,7 @@ public class Test02Dao {
 //		ContactoDao dao2 = new ContactoDaoMem();
 		ContactoDao dao = new ContactoDaoJPA();
 		
-//		System.out.println(dao.buscar(90));
+		System.out.println(dao.buscar(90));
 		
 //		for (Contacto c : dao.buscarTodos()) {
 //			System.out.println(c);

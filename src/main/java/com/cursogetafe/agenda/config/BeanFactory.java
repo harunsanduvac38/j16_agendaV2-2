@@ -1,5 +1,7 @@
 package com.cursogetafe.agenda.config;
 
+import com.cursogetafe.agenda.negocio.Agenda;
+import com.cursogetafe.agenda.negocio.AgendaImpl;
 import com.cursogetafe.agenda.persistencia.ContactoDao;
 import com.cursogetafe.agenda.persistencia.ContactoDaoJDBC;
 import com.cursogetafe.agenda.persistencia.ContactoDaoJPA;
@@ -19,6 +21,13 @@ public class BeanFactory {
 			};
 	}
 	
-	
+	public static Agenda getAgenda() {
+		
+		String tipoAgenda = Config.getProp().getProperty("negocio");
+		
+		return switch (tipoAgenda) {
+			default -> new AgendaImpl();
+		};
+	}
 
 }

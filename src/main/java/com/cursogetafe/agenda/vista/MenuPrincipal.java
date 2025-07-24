@@ -1,6 +1,7 @@
 package com.cursogetafe.agenda.vista;
 
 
+import com.cursogetafe.agenda.config.BeanFactory;
 import com.cursogetafe.agenda.negocio.Agenda;
 import com.cursogetafe.agenda.negocio.AgendaImpl;
 import com.cursogetafe.agenda.util.Util;
@@ -10,7 +11,8 @@ public class MenuPrincipal {
 	private Agenda agenda;
 	
 	public MenuPrincipal() {
-		agenda = new AgendaImpl();
+//		agenda = new AgendaImpl();
+		agenda = BeanFactory.getAgenda();
 		menu();
 	}
 	
