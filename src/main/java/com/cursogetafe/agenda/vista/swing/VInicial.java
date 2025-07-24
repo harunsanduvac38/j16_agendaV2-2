@@ -30,6 +30,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
+import com.cursogetafe.agenda.config.BeanFactory;
 import com.cursogetafe.agenda.modelo.Contacto;
 import com.cursogetafe.agenda.negocio.Agenda;
 import com.cursogetafe.agenda.negocio.AgendaImpl;
@@ -63,7 +64,8 @@ public class VInicial extends JFrame {
 	private int ELIMINAR = 3;
 	int filaActualTabla;
 	
-	private Agenda agenda = new AgendaImpl();
+//	private Agenda agenda = new AgendaImpl();
+	private Agenda agenda = BeanFactory.getAgenda();
 
 	public VInicial() {
 		super("Agenda de Contactos");
