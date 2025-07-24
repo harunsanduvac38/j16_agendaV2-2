@@ -9,7 +9,6 @@ import java.util.TreeSet;
 
 import com.cursogetafe.agenda.modelo.Contacto;
 import com.cursogetafe.agenda.persistencia.ContactoDao;
-import com.cursogetafe.agenda.persistencia.ContactoDaoJDBC;
 import com.cursogetafe.agenda.persistencia.ContactoDaoJPA;
 
 

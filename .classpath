@@ -54,7 +54,5 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/mananas/Desktop/Documentos_de_Pablo/Modulo_III/Documentos/coneccion/commons-dbcp-1.4.jar"/>
-	<classpathentry kind="lib" path="/Users/mananas/Desktop/Documentos_de_Pablo/Modulo_III/Documentos/coneccion/commons-pool-1.5.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

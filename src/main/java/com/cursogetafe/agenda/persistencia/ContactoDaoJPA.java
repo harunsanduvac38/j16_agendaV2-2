@@ -82,7 +82,7 @@ public class ContactoDaoJPA  implements ContactoDao {
 	public Contacto buscar(int idContacto) {
 		em = emf.createEntityManager();	
 		String jpql = "select c from Contacto c left join fetch c.telefonos and left join fetch c.correos where c.idContacto = :id";
-		TypedQuery<Contacto> q = em.createNamedQuery(jpql, Contacto.class);
+		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
 		q.setParameter("id", idContacto);
 		Contacto buscado = q.getSingleResultOrNull();
 		return buscado;
@@ -105,9 +105,9 @@ public class ContactoDaoJPA  implements ContactoDao {
 	public Set<Contacto> buscar(String cadena) {
 		Set<Contacto> result = new HashSet<Contacto>();
 		
-		String jpql = "select c from Contacto where c.nombre like :cad or c.apellidos like :cad or c.apodo like :cad";
-		TypedQuery<Contacto> q = em.createNamedQuery(jpql, Contacto.class);
-		q.setParameter("cad", cadena);
+		String jpql = "select c from Contacto c where c.nombre like :cad or c.apellidos like :cad or c.apodo like :cad";
+		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
+		q.setParameter("cad", "%" + cadena + "%");
 		
 		result.addAll(q.getResultList());
 		return result;
@@ -117,9 +117,9 @@ public class ContactoDaoJPA  implements ContactoDao {
 
 	@Override
 	public Set<Contacto> buscarTodos() {
-		
-		String jpql = "select c from Contacto";
-		TypedQuery<Contacto> q = em.createNamedQuery(jpql, Contacto.class);
+		em = emf.createEntityManager();
+		String jpql = "select c from Contacto c left join fetch c.telefonos and left join fetch c.correos";
+		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
 		Set<Contacto> result = new HashSet<Contacto>(q.getResultList());
 		return result;
 	}

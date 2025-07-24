@@ -22,6 +22,7 @@ public class Contacto implements Comparable<Contacto>,Cloneable ,Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idcontactos")
 	private int idContacto;
 	private String nombre;
 	private String apellidos;
