@@ -20,7 +20,7 @@ public class Config {
 	
 	public static EntityManagerFactory getEmf() {
 		if(emf == null) {
-			emf = Persistence.createEntityManagerFactory("ejercicioJPA");
+			emf = Persistence.createEntityManagerFactory("agendaJPA");
 		}
 		return emf;
 	}

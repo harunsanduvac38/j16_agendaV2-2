@@ -1,5 +1,6 @@
 package com.cursogetafe.agenda.vista;
 
+
 import com.cursogetafe.agenda.negocio.Agenda;
 import com.cursogetafe.agenda.negocio.AgendaImpl;
 import com.cursogetafe.agenda.util.Util;
@@ -33,6 +34,9 @@ public class MenuPrincipal {
 			switch (opcion) {
 			case 1:
 				new NuevoContacto(agenda);
+				break;
+			case 2:
+				new BuscarContacto(agenda);
 				break;
 			case 3:
 				new ConsultarTodos(agenda);

@@ -2,21 +2,23 @@ package com.cursogetafe.agenda.tests;
 
 import com.cursogetafe.agenda.modelo.Contacto;
 import com.cursogetafe.agenda.persistencia.ContactoDao;
+import com.cursogetafe.agenda.persistencia.ContactoDaoJPA;
 import com.cursogetafe.agenda.persistencia.ContactoDaoMem;
 
 public class Test02Dao {
 
 	public static void main(String[] args) {
-		ContactoDao dao = new ContactoDaoMem();
+		ContactoDao dao2 = new ContactoDaoMem();
+		ContactoDao dao = new ContactoDaoJPA();
 		
 //		for (Contacto c : dao.buscarTodos()) {
 //			System.out.println(c);
 //		}
-		dao.buscarTodos().forEach(System.out::println);
-		System.out.println();
+//		dao.buscarTodos().forEach(System.out::println);
+//		System.out.println();
 		
-		dao.buscar("al").forEach(System.out::println);
-		System.out.println();
+//		dao.buscar("al").forEach(System.out::println);
+//		System.out.println();
 
 		System.out.println(dao.buscar(44));
 		System.out.println();

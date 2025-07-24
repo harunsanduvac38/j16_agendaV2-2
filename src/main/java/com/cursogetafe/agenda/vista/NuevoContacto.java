@@ -1,9 +1,9 @@
 package com.cursogetafe.agenda.vista;
 
+
 import com.cursogetafe.agenda.modelo.Contacto;
 import com.cursogetafe.agenda.negocio.Agenda;
 import com.cursogetafe.agenda.util.Util;
-
 
 public class NuevoContacto {
 	

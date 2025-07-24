@@ -1,5 +1,6 @@
 package com.cursogetafe.agenda.vista;
 
+
 import java.util.Set;
 
 import com.cursogetafe.agenda.modelo.Contacto;
@@ -18,8 +19,8 @@ public class ConsultarTodos {
 		
 		System.out.println("\nTODOS LOS CONTACTOS");
 		for (Contacto contacto : todos) {
-			System.out.println(contacto.getNombre() + "\t" + contacto.getApellidos() + 
-					"\t" + contacto.getApodo() + "\t" + contacto.getTelefonos()+ "\t" + contacto.getCorreos());
+			System.out.println(contacto.getIdContacto() + "\t" + contacto.getNombre() + "\t" + contacto.getApellidos() + 
+					"\t" + contacto.getApodo());
 		}
 	}
 	
