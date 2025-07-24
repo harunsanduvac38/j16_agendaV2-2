@@ -81,30 +81,35 @@ public class ContactoDaoJPA  implements ContactoDao {
 	@Override
 	public Contacto buscar(int idContacto) {
 		em = emf.createEntityManager();	
-		String jpql = "select c from Contacto c left join fetch c.telefonos and left join fetch c.correos where c.idContacto = :id";
+		String jpql = "select c from Contacto c left join fetch c.telefonos and"
+				+ " left join fetch c.correos "
+				+ "where c.idContacto = :id";
+				
 		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
 		q.setParameter("id", idContacto);
 		Contacto buscado = q.getSingleResultOrNull();
+		
+		
 		return buscado;
 	}
 	
-	public Contacto buscarX(int idContacto) {
-		em = emf.createEntityManager();
-		Contacto buscado = em.find(Contacto.class, idContacto);
-		if(buscado != null) {
-			buscado.getTelefonos().size();
-			buscado.getCorreos().size();
-		}
-		em.close();
-		return buscado;
-		
-	}
+//	public Contacto buscar(int idContacto) {
+//		em = emf.createEntityManager();
+//		Contacto buscado = em.find(Contacto.class, idContacto);
+//		if(buscado != null) {
+//			buscado.getTelefonos().size();
+//			buscado.getCorreos().size();
+//		}
+//		em.close();
+//		return buscado;
+//		
+//	}
 	
 	//Debe retornar los contactos sin telefonos ni correos
 	@Override
 	public Set<Contacto> buscar(String cadena) {
 		Set<Contacto> result = new HashSet<Contacto>();
-		
+		em = emf.createEntityManager();
 		String jpql = "select c from Contacto c where c.nombre like :cad or c.apellidos like :cad or c.apodo like :cad";
 		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
 		q.setParameter("cad", "%" + cadena + "%");

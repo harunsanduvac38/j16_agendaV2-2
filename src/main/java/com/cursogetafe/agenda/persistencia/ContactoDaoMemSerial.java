@@ -27,9 +27,9 @@ public class ContactoDaoMemSerial implements ContactoDao {
 		
 	//hacemos el constructor
 	public ContactoDaoMemSerial() {
-//		almacen = new HashMap<Integer, Contacto>();
-//		proximoId = 1; //para que se valla incrementando
-//		cargaInicial();
+		almacen = new HashMap<Integer, Contacto>();
+		proximoId = 1; //para que se valla incrementando
+		cargaInicial();
 		leerFicheros();
 	}
 	

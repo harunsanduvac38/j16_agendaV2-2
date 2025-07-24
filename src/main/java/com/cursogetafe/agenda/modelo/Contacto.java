@@ -139,7 +139,7 @@ public class Contacto implements Comparable<Contacto>,Cloneable ,Serializable{
 	@Override
 	public String toString() {
 		return "Contacto [" + idContacto + ", " + nombre + ", " + apellidos + ", "
-				+ apodo + ", " + dom + ", " + telefonos + ", " + correos + "]";
+				+ apodo + "]";
 	}
 
 	@Override  //orden natural
