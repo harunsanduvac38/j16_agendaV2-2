@@ -54,19 +54,26 @@ class TestContactoDao {
 		em.close();
 	}
 
-	@Test
-	void testContactoDaoJPA() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	void testInsertar() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testActualizar() {
-		fail("Not yet implemented");
+	
+		Contacto nuevo = crearContacto(1);
+		cDao.insertar(nuevo);
+		
+		nuevo.setApellidos("nuevoApellido");
+		nuevo.addCorreos("correo@test.test");
+		nuevo.addTelefonos("nuevoTelefono");
+		
+		cDao.actualizar(nuevo);
+		
+		Contacto otro = cDao.buscar(nuevo.getIdContacto());
+		assertNotNull(otro);
+		assertEquals("nuevoApellido", otro.getApellidos());
+		assertEquals(2, otro.getCorreos().size());
+		assertEquals(2, otro.getTelefonos().size());
+		
 	}
 
 	@Test
