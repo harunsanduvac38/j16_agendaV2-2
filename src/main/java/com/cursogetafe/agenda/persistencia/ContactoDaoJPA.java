@@ -19,6 +19,10 @@ public class ContactoDaoJPA  implements ContactoDao {
 		emf = Config.getEmf();
 	}
 	
+	public ContactoDaoJPA(EntityManagerFactory emf) {
+		this.emf = emf;
+	}
+	
 	@Override
 	public void insertar(Contacto c) {
 		em = emf.createEntityManager();
@@ -89,7 +93,7 @@ public class ContactoDaoJPA  implements ContactoDao {
 		q.setParameter("id", idContacto);
 		Contacto buscado = q.getSingleResultOrNull();
 		
-		
+		em.close();
 		return buscado;
 	}
 	
@@ -115,6 +119,7 @@ public class ContactoDaoJPA  implements ContactoDao {
 		q.setParameter("cad", "%" + cadena + "%");
 		
 		result.addAll(q.getResultList());
+		em.close();
 		return result;
 	}
 	
@@ -123,9 +128,10 @@ public class ContactoDaoJPA  implements ContactoDao {
 	@Override
 	public Set<Contacto> buscarTodos() {
 		em = emf.createEntityManager();
-		String jpql = "select c from Contacto c left join fetch c.telefonos and left join fetch c.correos";
+		String jpql = "select c from Contacto c left join c.telefonos and left join c.correos";
 		TypedQuery<Contacto> q = em.createQuery(jpql, Contacto.class);
 		Set<Contacto> result = new HashSet<Contacto>(q.getResultList());
+		em.close();
 		return result;
 	}
 

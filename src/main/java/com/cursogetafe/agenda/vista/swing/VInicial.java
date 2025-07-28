@@ -33,7 +33,6 @@ import javax.swing.table.DefaultTableModel;
 import com.cursogetafe.agenda.config.BeanFactory;
 import com.cursogetafe.agenda.modelo.Contacto;
 import com.cursogetafe.agenda.negocio.Agenda;
-import com.cursogetafe.agenda.negocio.AgendaImpl;
 
 public class VInicial extends JFrame {
 	private static final long serialVersionUID = 1L;
